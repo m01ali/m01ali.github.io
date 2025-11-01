@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Ali - Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            background: #121212;
+            color: #f0f0f0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #282828;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.9);
+            position: relative;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #bb86fc;
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            letter-spacing: 1px;
+            color: #bb86fc;
+        }
+
+        header p {
+            margin-top: 0.5rem;
+            font-weight: 300;
+            font-size: 1.3rem;
+            color: #cf94da;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        section {
+            background: #1f1f1f;
+            padding: 1.5rem 2rem;
+            margin: 1rem 0;
+            border-radius: 10px;
+            box-shadow: 0 0 12px rgba(187,134,252, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(187,134,252, 0.7);
+        }
+
+        h2 {
+            color: #bb86fc;
+            border-bottom: 2px solid #bb86fc;
+            padding-bottom: 0.3rem;
+            display: flex;
+            align-items: center;
+        }
+
+        h2 svg {
+            margin-right: 10px;
+            width: 28px;
+            height: 28px;
+            fill: #bb86fc;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background: #282828;
+            margin: 0.8rem 0;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #bb86fc;
+            transition: all 0.3s;
+        }
+
+        li:hover {
+            background: #333;
+            border-left-width: 8px;
+        }
+
+        li strong {
+            color: #cf94da;
+            font-size: 1.1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background: #282828;
+            margin-top: 3rem;
+            color: #aaa;
+        }
+
+        a {
+            color: #bb86fc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #cf94da;
+        }
+
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .tech-category {
+            background: #282828;
+            padding: 0.8rem;
+            border-radius: 8px;
+            border-left: 3px solid #bb86fc;
+        }
+
+        .tech-category h3 {
+            color: #cf94da;
+            margin: 0 0 0.5rem 0;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .tech-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .tech-item {
+            background: #1f1f1f;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            border: 1px solid #444;
+            transition: all 0.2s;
+        }
+
+        .tech-item:hover {
+            border-color: #bb86fc;
+            background: #282828;
+        }
+
+        .project-card {
+            background: #282828;
+            margin: 1rem 0;
+            padding: 1.2rem;
+            border-radius: 8px;
+            border-left: 4px solid #bb86fc;
+        }
+
+        .project-card h3 {
+            color: #cf94da;
+            margin-top: 0;
+        }
+
+        .project-description {
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #282828;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            transition: all 0.3s;
+            border: 1px solid #444;
+        }
+
+        .contact-item:hover {
+            background: #333;
+            border-color: #bb86fc;
+            transform: translateY(-2px);
+        }
+
+        .contact-item svg {
+            width: 24px;
+            height: 24px;
+            fill: #bb86fc;
+        }
+
+        @media (max-width: 768px) {
+            .contact-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .tech-stack {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <img src='images/profile.jpg' alt='Profile Picture' class='profile-pic'>
+        <h1>Muhammad Ali</h1>
+        <p>AI Engineer | Research | Software Engineering</p>
+    </header>
+
+    <main>
+        <section id='about'>
+            <h2>
+                <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/></svg>
+                About Me
+            </h2>
+            <p>I am a generative AI engineer with experience in software development, research, and AI model engineering. Currently focused on developing innovative AI solutions and exploring state-of-the-art technologies in the field.</p>
+        </section>
+
+        <section id='experience'>
+            <h2>
+                <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M20 6h-4V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM10 4h4v2h-4V4zm10 16H4V8h16v12z'/></svg>
+                Experience
+            </h2>
+            <ul>
+                <li>
+                    <strong>Generative AI Engineer</strong> at MOSAIC AI LLC<br>
+                    <em>06/2025 – Present</em><br>
+                    Conducting literature reviews, technical benchmarking for cutting-edge platforms, and advanced prompt engineering.
+                </li>
+                <li>
+                    <strong>Research Assistant</strong><br>
+                    <em>08/2024 – 04/2025</em><br>
+                    Developing code and experimenting with models for text-to-speech, text generation, RAG etc. Conducted comprehensive literature review, gathering data from research articles, public datasets, or APIs, and applying NLP techniques for data cleaning and processing.
+                </li>
+                <li>
+                    <strong>Cohere Expedition Member</strong><br>
+                    <em>03/2025 – 06/2025</em><br>
+                    Evaluated multiple prompting techniques (CoT, CoAT, PAL, Direct, Self-consistency, ToT, RAG etc) across diverse domains and datasets (GSM8K, MedMCQA, Spider, MMLU, HumanEval, MBPP, HotpotQA, etc). Refined prompt templates for multi-step reasoning tasks.
+                </li>
+                <li>
+                    <strong>AI Engineer</strong> at CodAgentic<br>
+                    <em>03/2024 – 04/2025</em><br>
+                    Led the end-to-end development of AI/ML, GenAI, NLP, and Computer Vision projects. Managed client engagement, project delivery, and negotiated successful deals with international clients.
+                </li>
+                <li>
+                    <strong>AI & Research Intern</strong> at Hydroponics Farm<br>
+                    <em>12/2023 – 03/2024</em><br>
+                    Developed and integrated supervised machine learning and computer vision models using PyTorch to monitor plant growth and detect diseases, achieving a mean average precision (mAP) of 0.91. Collected, cleaned, and annotated large scale dataset via Roboflow.
+                </li>
+            </ul>
+        </section>
+
+        <section id='tech-stack'>
+            <h2>
+                <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z'/></svg>
+                Tech Stack
+            </h2>
+            <div class='tech-stack'>
+                <div class='tech-category'>
+                    <h3>Languages</h3>
+                    <div class='tech-items'>
+                        <span class='tech-item'>Python</span>
+                        <span class='tech-item'>Java</span>
+                        <span class='tech-item'>C++</span>
+                    </div>
+                </div>
+
+                <div class='tech-category'>
+                    <h3>ML/DL Frameworks</h3>
+                    <div class='tech-items'>
+                        <span class='tech-item'>TensorFlow</span>
+                        <span class='tech-item'>PyTorch</span>
+                        <span class='tech-item'>Scikit-learn</span>
+                        <span class='tech-item'>XGBoost</span>
+                        <span class='tech-item'>Hugging Face</span>
+                        <span class='tech-item'>Unsloth</span>
+                    </div>
+                </div>
+
+                <div class='tech-category'>
+                    <h3>Agentic Frameworks</h3>
+                    <div class='tech-items'>
+                        <span class='tech-item'>LangChain</span>
+                        <span class='tech-item'>LangGraph</span>
+                        <span class='tech-item'>CrewAI</span>
+                        <span class='tech-item'>AutoGen</span>
+                    </div>
+                </div>
+
+                <div class='tech-category'>
+                    <h3>Computer Vision</h3>
+                    <div class='tech-items'>
+                        <span class='tech-item'>OpenCV</span>
+                        <span class='tech-item'>Roboflow</span>
+                    </div>
+                </div>
+
+                <div class='tech-category'>
+                    <h3>NLP Libraries</h3>
+                    <div class='tech-items'>
+                        <span class='tech-item'>Spacy</span>
+                        <span class='tech-item'>NLTK</span>
+                    </div>
+                </div>
+
+                <div class='tech-category'>
+                    <h3>Cloud Platforms</h3>
+                    <div class='tech-items'>
+                        <span class='tech-item'>AWS</span>
+                        <span class='tech-item'>GCP</span>
+                        <span class='tech-item'>VertexAI</span>
+                        <span class='tech-item'>Google ADK</span>
+                        <span class='tech-item'>AWS Strands</span>
+                        <span class='tech-item'>Firebase</span>
+                    </div>
+                </div>
+
+                <div class='tech-category'>
+                    <h3>MLOps Tools</h3>
+                    <div class='tech-items'>
+                        <span class='tech-item'>Docker</span>
+                        <span class='tech-item'>MLFlow</span>
+                        <span class='tech-item'>LangFuse</span>
+                        <span class='tech-item'>DVC</span>
+                        <span class='tech-item'>Apache Airflow</span>
+                        <span class='tech-item'>DagsHub</span>
+                    </div>
+                </div>
+
+                <div class='tech-category'>
+                    <h3>Web Frameworks</h3>
+                    <div class='tech-items'>
+                        <span class='tech-item'>FastAPI</span>
+                        <span class='tech-item'>Flask</span>
+                        <span class='tech-item'>Streamlit</span>
+                        <span class='tech-item'>Gradio</span>
+                    </div>
+                </div>
+
+                <div class='tech-category'>
+                    <h3>Data Science</h3>
+                    <div class='tech-items'>
+                        <span class='tech-item'>Pandas</span>
+                        <span class='tech-item'>Matplotlib</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id='projects'>
+            <h2>
+                <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z'/></svg>
+                Projects
+            </h2>
+
+            <div class='project-card'>
+                <h3>Resume Bank</h3>
+                <p class='project-description'>[Description placeholder - Add your project description here]</p>
+            </div>
+
+            <div class='project-card'>
+                <h3>Urdu Talkshow Conversational AI System</h3>
+                <p class='project-description'>[Description placeholder - Add your project description here]</p>
+            </div>
+
+            <div class='project-card'>
+                <h3>Multi-Agent Health Insurance System</h3>
+                <p class='project-description'>[Description placeholder - Add your project description here]</p>
+            </div>
+
+            <div class='project-card'>
+                <h3>Autonomous Media Generation Via Agents</h3>
+                <p class='project-description'>[Description placeholder - Add your project description here]</p>
+            </div>
+
+            <div class='project-card'>
+                <h3>AI Therapist</h3>
+                <p class='project-description'>[Description placeholder - Add your project description here]</p>
+            </div>
+
+            <div class='project-card'>
+                <h3>Forest Fire Detection</h3>
+                <p class='project-description'>[Description placeholder - Add your project description here]</p>
+            </div>
+        </section>
+
+        <section id='contact'>
+            <h2>
+                <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/></svg>
+                Contact
+            </h2>
+            <div class='contact-links'>
+                <a href='mailto:mhd01alii@outlook.com' class='contact-item'>
+                    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/></svg>
+                    Email
+                </a>
+                <a href='https://github.com/m01ali' target='_blank' class='contact-item'>
+                    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z'/></svg>
+                    GitHub
+                </a>
+                <a href='https://www.linkedin.com/in/muhammad-ali-2480a0255/' target='_blank' class='contact-item'>
+                    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z'/></svg>
+                    LinkedIn
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Muhammad Ali. All rights reserved.</p>
+    </footer>
+</body>
+</html>
