@@ -1,1 +1,1 @@
-A repo for my github.io page available at [https://m01ali.github.io/ ]([url](https://m01ali.github.io/))  
+A repo for my github.io page available at m01ali.github.io/
